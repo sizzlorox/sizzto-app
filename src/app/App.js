@@ -47,11 +47,11 @@ class App extends React.Component {
                 <br />
                 {`Price to BTC: ${crypto.price_btc}`}
                 <br />
-                {`Change 1h: ${crypto.percent_change_1h}%`}
+                {`Change 1h: ${crypto.percent_change_1h > 0 ? '\u2191' : '\u2193'} ${crypto.percent_change_1h}%`}
                 <br />
-                {`Change 24h: ${crypto.percent_change_24h}%`}
+                {`Change 24h: ${crypto.percent_change_24h > 0 ? '\u2191' : '\u2193'} ${crypto.percent_change_24h}%`}
                 <br />
-                {`Change 7d: ${crypto.percent_change_7d}%`}
+                {`Change 7d: ${crypto.percent_change_7d > 0 ? '\u2191' : '\u2193'} ${crypto.percent_change_7d}%`}
                 <hr />
                 {`Last Updated: ${this.formatTime(crypto.last_updated)}`}
               </section>
