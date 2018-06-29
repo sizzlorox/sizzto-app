@@ -1,0 +1,20 @@
+#navbar {
+  display: flex;
+  background-color: #061f2b;
+  margin: 0 0;
+  font-weight: 400;
+  border: 1px solid;
+  min-height: 2.5em;
+  #menuItem {
+    position: relative;
+    vertical-align: middle;
+    line-height: 1;
+    flex: 0 0 auto;
+    padding: 0.9rem 1.1rem;
+    list-style-type: none;
+    a {
+      color: #467fa1;
+      text-decoration: none;
+    }
+  }
+}
