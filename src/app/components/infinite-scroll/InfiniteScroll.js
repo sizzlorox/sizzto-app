@@ -24,7 +24,8 @@ class InfiniteScroll extends React.Component {
   }
 
   listenScrollEvent() {
-    if (window.pageYOffset >= (document.body.scrollHeight - document.body.clientHeight)) {
+    console.log(`${window.pageYOffset} - ${(document.body.scrollHeight - document.body.clientHeight)}`);
+    if (window.pageYOffset >= (document.body.scrollHeight - document.body.clientHeight - 1) && !this.state.isLoading) {
       this.setState({
         start: this.state.start + this.state.limit,
 
@@ -34,9 +35,6 @@ class InfiniteScroll extends React.Component {
   }
 
   fetchData() {
-    this.setState({
-      isLoading: false,
-    });
     fetch(`https://api.coinmarketcap.com/v2/ticker/?start=${this.state.start}&limit=${this.state.limit}`)
       .then(results => results.json())
       .then(result => {
