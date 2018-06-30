@@ -2,6 +2,7 @@ const React = require('react');
 
 // Components
 const Card = require('../card/Card');
+const ScrollToTop = require('../scrollToTop/ScrollToTop');
 
 class InfiniteScroll extends React.Component {
 
@@ -10,7 +11,8 @@ class InfiniteScroll extends React.Component {
     this.state = {
       isLoading: false,
       start: 0,
-      limit: 30
+      limit: 30,
+      yOffset: 0
     };
 
     this.listenScrollEvent = this.listenScrollEvent.bind(this);
@@ -26,7 +28,9 @@ class InfiniteScroll extends React.Component {
   }
 
   listenScrollEvent() {
-    console.log(`${window.pageYOffset} - ${(document.body.scrollHeight - document.body.clientHeight)}`);
+    this.setState({
+      yOffset: window.pageYOffset
+    })
     if (window.pageYOffset >= (document.body.scrollHeight - document.body.clientHeight - 1) && !this.state.isLoading) {
       this.setState({
         start: this.state.start + this.state.limit,
@@ -82,6 +86,7 @@ class InfiniteScroll extends React.Component {
     return (
       <div id='card-list' ref='iScroll' >
         {this.state.cryptoData}
+        {this.state.yOffset >= 50 ? <ScrollToTop scrollStepInPx={window.pageYOffset / 12} delayInMs="12"/> : null}
         {this.state.isLoading ? <p>Loading...</p> : ''}
       </div >
     );

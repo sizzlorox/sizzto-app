@@ -13,6 +13,7 @@ body {
   @import 'components/nav-bar/navbar';
   @import 'components/header/header';
   @import 'components/card/card/';
+  @import 'components/scrollToTop/scrollToTop';
   #card-list {
     display: flex;
     flex-wrap: wrap;
