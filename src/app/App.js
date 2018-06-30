@@ -1,7 +1,10 @@
+const { Route, Switch } = require('react-router-dom');
+
 // Components
 const Navbar = require('./components/nav-bar/Navbar');
-const Header = require('./components/header/Header');
-const InfiniteScroll = require('./components/infinite-scroll/InfiniteScroll');
+
+// Views
+const Home = require('./views/Home');
 
 class App extends React.Component {
   // Should initialize state in constructor instead of getInitialState when using ES6 Classes
@@ -47,8 +50,10 @@ class App extends React.Component {
           <div id='menu'>
             <Navbar items={this.state.navbar} />
           </div>
-          <Header text='Sizzto' subheader='Crypto-Currency Info' />
-          <InfiniteScroll />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route component={Home} />
+          </Switch>
         </div>
       )
   }
