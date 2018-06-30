@@ -1,3 +1,6 @@
+const React = require('react');
+
+// Components
 const HeaderBackground = require('./HeaderBackground');
 const HeaderTitle = require('./HeaderTitle');
 

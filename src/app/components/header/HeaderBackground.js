@@ -1,3 +1,5 @@
+const React = require('react');
+
 class HeaderBackground extends React.Component {
 
   render() {

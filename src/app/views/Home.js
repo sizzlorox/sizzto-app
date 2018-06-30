@@ -1,3 +1,5 @@
+const React = require('react');
+
 // Components
 const Header = require('../components/header/Header');
 const InfiniteScroll = require('../components/infinite-scroll/InfiniteScroll');

@@ -1,3 +1,6 @@
+const React = require('react');
+
+// Components
 const NavbarItem = require('./NavbarItem');
 
 class Navbar extends React.Component {

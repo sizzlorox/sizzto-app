@@ -1,3 +1,5 @@
+const React = require('react');
+
 class HeaderTitle extends React.Component {
 
   render() {

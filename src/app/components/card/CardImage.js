@@ -1,3 +1,5 @@
+const React = require('react');
+
 class CardImage extends React.Component {
 
   render() {

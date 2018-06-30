@@ -1,3 +1,4 @@
+const React = require('react');
 const { Route, Switch } = require('react-router-dom');
 
 // Components
@@ -6,26 +7,15 @@ const Navbar = require('./components/nav-bar/Navbar');
 // Views
 const Home = require('./views/Home');
 
+const { navbarLinks } = require('./utils/enumHelper');
+
 class App extends React.Component {
   // Should initialize state in constructor instead of getInitialState when using ES6 Classes
   constructor(props) {
     super(props);
     // Locally defined state
     this.state = {
-      navbar: [
-        {
-          text: 'Home',
-          url: '#'
-        },
-        {
-          text: 'About',
-          url: '#'
-        },
-        {
-          text: 'Contact us',
-          url: '#'
-        }
-      ],
+      navbar: navbarLinks,
       isLoading: true
     };
   }

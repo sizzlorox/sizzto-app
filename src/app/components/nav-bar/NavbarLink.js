@@ -1,3 +1,5 @@
+const React = require('react');
+
 class NavbarLink extends React.Component {
 
   render() {

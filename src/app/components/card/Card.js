@@ -1,3 +1,6 @@
+const React = require('react');
+
+// Components
 const CardImage = require('./CardImage');
 const CardBody = require('./CardBody');
 

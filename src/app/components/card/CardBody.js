@@ -1,3 +1,5 @@
+const React = require('react');
+
 class CardBody extends React.Component {
 
   render() {

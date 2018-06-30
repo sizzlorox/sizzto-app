@@ -1,3 +1,5 @@
+const React = require('react');
+
 // Components
 const Card = require('../card/Card');
 

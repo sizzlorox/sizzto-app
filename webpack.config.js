@@ -28,8 +28,6 @@ const options = {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new webpack.ProvidePlugin({
-      React: 'react',
-      ReactDOM: 'react-dom',
       classnames: 'classnames'
     }),
   ],

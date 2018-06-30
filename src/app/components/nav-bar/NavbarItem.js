@@ -1,3 +1,6 @@
+const React = require('react');
+
+// Components
 const Navbar = require('./Navbar');
 const NavbarLink = require('./NavbarLink');
 
