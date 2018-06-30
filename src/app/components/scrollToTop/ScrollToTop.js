@@ -1,4 +1,5 @@
 const React = require('react');
+const { FontAwesomeIcon } = require('@fortawesome/react-fontawesome');
 
 class ScrollToTop extends React.Component {
 
@@ -26,7 +27,9 @@ class ScrollToTop extends React.Component {
   render() {
     return (
       <button id='scrollTop' onClick={this.scrollToTop}>
-        <span id='arrow-up'>↑</span>
+        <span id='arrow-up'>
+          <FontAwesomeIcon icon='angle-up' />
+        </span>
       </button>
     );
   }
