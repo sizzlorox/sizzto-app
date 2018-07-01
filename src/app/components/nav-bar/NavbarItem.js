@@ -8,7 +8,7 @@ class NavbarItem extends React.Component {
   render() {
     return (
       <li id='menuItem'>
-        <NavbarLink url={this.props.url} text={this.props.text} />
+        <NavbarLink url={this.props.url} activeClassName={this.props.activeClassName} text={this.props.text} />
         {this.props.submenu && <Navbar items={this.props.submenu} />}
       </li>
     )
