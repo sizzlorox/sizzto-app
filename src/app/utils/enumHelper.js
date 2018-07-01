@@ -2,15 +2,19 @@ module.exports = {
   navbarLinks: [
     {
       text: 'Home',
-      url: '#'
+      url: '/'
     },
     {
       text: 'About',
-      url: '#'
+      url: '/about'
+    },
+    {
+      text: 'News',
+      url: '/news'
     },
     {
       text: 'Contact us',
-      url: '#'
+      url: '/contact'
     }
   ]
 };

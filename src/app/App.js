@@ -5,7 +5,10 @@ const { Route, Switch } = require('react-router-dom');
 const Navbar = require('./components/nav-bar/Navbar');
 
 // Views
+const NotFound = require('./views/NotFound');
 const Home = require('./views/Home');
+const About = require('./views/About');
+const News = require('./views/News');
 
 const { navbarLinks } = require('./utils/enumHelper');
 
@@ -36,15 +39,19 @@ class App extends React.Component {
         </div>
       )
       : (
-        <div>
+        <React.Fragment>
           <div id='menu'>
             <Navbar items={this.state.navbar} />
           </div>
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route component={Home} />
-          </Switch>
-        </div>
+          <div id='content'>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/about' component={About} />
+              <Route exact path='/news' component={News} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
+        </React.Fragment>
       )
   }
 }

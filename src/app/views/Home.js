@@ -8,10 +8,10 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Header text='Sizzto' subheader='Crypto-Currency Info' />
         <InfiniteScroll />
-      </div>
+      </React.Fragment>
     );
   }
 
