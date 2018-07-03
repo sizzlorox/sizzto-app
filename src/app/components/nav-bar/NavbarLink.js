@@ -5,7 +5,7 @@ class NavbarLink extends React.Component {
 
   render() {
     return (
-      <NavLink to={this.props.url} activeClassName={this.props.activeClassName}>{this.props.text}</NavLink>
+      <NavLink exact to={this.props.url} activeClassName={this.props.activeClassName}>{this.props.text}</NavLink>
     );
   }
 
