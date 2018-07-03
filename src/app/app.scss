@@ -19,4 +19,22 @@ body {
     flex-wrap: wrap;
     overflow: auto;
   }
+  .not-found {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: 0.25em;
+    box-shadow: 6px 5px 24px #666666;
+    margin: 1.45em;
+    text-align: center;
+    background-color: gray;
+    .submit {
+      margin: auto;
+      width: 150px;
+      border-radius: 28px;
+    }
+  }
 }
