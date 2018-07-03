@@ -4,7 +4,7 @@ class HeaderBackground extends React.Component {
 
   render() {
     return (
-      <img id='background' src={this.props.src} />
+      <img data-depth='0.6' src={this.props.src} />
     );
   }
 

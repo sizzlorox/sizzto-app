@@ -7,14 +7,16 @@
   margin-left: auto;
   margin-right: auto;
   background-color: lightgray;
+  background-image: url(https://www.thewealthadvisor.com/sites/default/files/2017-05/connected-data.jpg);
   #header-title {
     height: 100%;
     padding: 0;
     margin: 0;
     text-align: center;
     font-weight: 700;
-    h1 {
-      padding-top: 50px;
+    color: white;
+    h4 {
+      position: relative !important;
     }
   }
 }
