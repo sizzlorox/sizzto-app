@@ -26,8 +26,8 @@ class ScrollToTop extends React.Component {
 
   render() {
     return (
-      <button id='scrollTop' onClick={this.scrollToTop}>
-        <span id='arrow-up'>
+      <button className={classnames('scroll-top')} onClick={this.scrollToTop}>
+        <span className={classnames('arrow-up')}>
           <FontAwesomeIcon icon='angle-up' />
         </span>
       </button>

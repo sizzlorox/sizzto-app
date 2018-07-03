@@ -10,7 +10,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <ul id='navbar'>
+      <ul className={classnames('navbar')}>
         {this.props.items.map(this.generateItem)}
       </ul>
     )

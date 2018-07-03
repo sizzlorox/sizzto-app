@@ -8,7 +8,7 @@ class Card extends React.Component {
 
   render() {
     return (
-      <div id='card'>
+      <div className={classnames('card')}>
         <CardImage />
         <CardBody title={this.props.title}>
           {this.props.children}

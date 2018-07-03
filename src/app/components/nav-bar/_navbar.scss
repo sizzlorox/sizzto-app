@@ -1,11 +1,11 @@
-#navbar {
+.navbar {
   display: flex;
   background-color: #061f2b;
   margin: 0 0;
   font-weight: 400;
   border: 1px solid;
   min-height: 2.5em;
-  #menuItem {
+  .menu-item {
     position: relative;
     vertical-align: middle;
     line-height: 1;
@@ -15,7 +15,7 @@
     a {
       color: #467fa1;
       text-decoration: none;
-      &.active {
+      &.active, &:hover {
         color: white;
         text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #467fa1, 0 0 70px #467fa1, 0 0 80px #467fa1, 0 0 100px #467fa1, 0 0 150px #467fa1;
       }

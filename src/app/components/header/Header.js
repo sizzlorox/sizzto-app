@@ -8,7 +8,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div id='header'>
+      <div className={classnames('header')}>
         <HeaderBackground src={this.props.src} />
         <HeaderTitle text={this.props.text} subheader={this.props.subheader} />
       </div>

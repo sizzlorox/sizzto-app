@@ -84,7 +84,7 @@ class InfiniteScroll extends React.Component {
 
   render() {
     return (
-      <div id='card-list' ref='iScroll' >
+      <div className={classnames('card-list')} ref='iScroll' >
         {this.state.cryptoData}
         {this.state.yOffset >= 50 ? <ScrollToTop scrollStepInPx={window.pageYOffset / 12} delayInMs="12"/> : null}
         {this.state.isLoading ? <p>Loading...</p> : ''}

@@ -4,7 +4,7 @@ class CardImage extends React.Component {
 
   render() {
     return (
-      <img id='card-image' src={this.props.src}/>
+      <img className={classnames('card-image')} src={this.props.src}/>
     );
   }
 

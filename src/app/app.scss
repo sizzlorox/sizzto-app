@@ -14,7 +14,7 @@ body {
   @import 'components/header/header';
   @import 'components/card/card/';
   @import 'components/scrollToTop/scrollToTop';
-  #card-list {
+  .card-list {
     display: flex;
     flex-wrap: wrap;
     overflow: auto;

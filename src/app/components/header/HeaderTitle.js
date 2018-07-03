@@ -11,7 +11,7 @@ class HeaderTitle extends React.Component {
 
   render() {
     return (
-      <div data-relative-input='true' data-hover-only='true' id='header-title'>
+      <div data-relative-input='true' data-hover-only='true' className={classnames('header-title')} id='header-title'>
         <h1 data-depth='0.2'>
           <FontAwesomeIcon icon={['fab', 'bitcoin']} />
           {this.props.text}
