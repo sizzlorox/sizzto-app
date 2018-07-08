@@ -14,8 +14,8 @@ class Runescape extends React.Component {
 
     this.state = {
       api: process.env.NODE_ENV.includes('production')
-        ? 'http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item='
-        : 'https://cors-anywhere.herokuapp.com/http://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item='
+        ? 'https://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item='
+        : 'https://cors-anywhere.herokuapp.com/https://services.runescape.com/m=itemdb_oldschool/api/catalogue/detail.json?item='
     };
 
     this.handleItemChange = this.handleItemChange.bind(this);
