@@ -1,5 +1,4 @@
 .card {
-  display: flex;
   position: relative;
   flex-direction: column;
   min-width: 0;
@@ -11,12 +10,17 @@
   @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
     width: 100%
   }
-  .card-image {
-    max-width: 100%;
-    height: auto;
-  }
   .card-body {
+    display: block;
     flex: 1 1 auto;
     padding: 1.25em;
+    .card-image {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      min-width: auto;
+      max-width: 100%;
+      height: auto;
+    }
   }
 }

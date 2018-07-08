@@ -1,7 +1,6 @@
 const React = require('react');
 
 // Components
-const CardImage = require('./CardImage');
 const CardBody = require('./CardBody');
 
 class Card extends React.Component {
@@ -9,8 +8,7 @@ class Card extends React.Component {
   render() {
     return (
       <div className={classnames('card')}>
-        <CardImage />
-        <CardBody title={this.props.title}>
+        <CardBody title={this.props.title} src={this.props.src}>
           {this.props.children}
         </CardBody>
       </div>

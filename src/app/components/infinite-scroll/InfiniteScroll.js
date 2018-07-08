@@ -71,7 +71,6 @@ class InfiniteScroll extends React.Component {
           cryptoData: this.state.cryptoData ? this.state.cryptoData.concat(cryptoData) : cryptoData
         });
       });
-
   }
 
   formatTime(unix_timestamp) {
