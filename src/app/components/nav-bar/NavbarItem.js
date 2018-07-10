@@ -4,14 +4,11 @@ const React = require('react');
 const Navbar = require('./Navbar');
 const NavbarLink = require('./NavbarLink');
 
-class NavbarItem extends React.Component {
-  render() {
-    return (
-      <li className={classnames('menu-item')}>
-        <NavbarLink url={this.props.url} activeClassName={this.props.activeClassName} text={this.props.text} />
-        {this.props.submenu && <Navbar items={this.props.submenu} />}
-      </li>
-    )
-  }
-}
-module.exports = NavbarItem;
+module.exports = ({ url, text, submenu, activeClassName }) => {
+  return (
+    <li className={classnames('menu-item')}>
+      <NavbarLink url={url} activeClassName={activeClassName} text={text} />
+      {submenu && <Navbar items={submenu} />}
+    </li>
+  );
+};

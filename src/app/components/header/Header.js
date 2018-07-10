@@ -4,16 +4,11 @@ const React = require('react');
 const HeaderBackground = require('./HeaderBackground');
 const HeaderTitle = require('./HeaderTitle');
 
-class Header extends React.Component {
-
-  render() {
-    return (
-      <div className={classnames('header')}>
-        <HeaderBackground src={this.props.src} />
-        <HeaderTitle text={this.props.text} subheader={this.props.subheader} />
-      </div>
-    )
-  }
-
-}
-module.exports = Header;
+module.exports = ({ src, text, subheader }) => {
+  return (
+    <div className={classnames('header')}>
+      <HeaderBackground src={src} />
+      <HeaderTitle text={text} subheader={subheader} />
+    </div>
+  );
+};

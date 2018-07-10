@@ -1,13 +1,8 @@
 const React = require('react');
 const { NavLink } = require('react-router-dom');
 
-class NavbarLink extends React.Component {
-
-  render() {
-    return (
-      <NavLink exact to={this.props.url} activeClassName={this.props.activeClassName}>{this.props.text}</NavLink>
-    );
-  }
-
-}
-module.exports = NavbarLink;
+module.exports = ({ url, activeClassName, text }) => {
+  return (
+    <NavLink exact to={url} activeClassName={activeClassName}>{text}</NavLink>
+  );
+};
