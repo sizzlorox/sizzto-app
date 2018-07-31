@@ -1,19 +1,19 @@
 .card {
-  position: relative;
-  flex-direction: column;
-  min-width: 0;
-  word-wrap: break-word;
-  background-clip: border-box;
-  border-radius: 0.25em;
+	display: flex; 
+  padding: 0.5em;
   box-shadow: 0 2px 5px 0;
-  margin: 0.45em;
+  border-radius: 0.5em;
+  margin: 0.4em;
   @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
     width: 100%
   }
   .card-body {
-    display: block;
-    flex: 1 1 auto;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
     padding: 1.25em;
+    width: 80%;
+    flex: 1 0 auto;
     .card-image {
       border: 1px solid #ddd;
       border-radius: 4px;

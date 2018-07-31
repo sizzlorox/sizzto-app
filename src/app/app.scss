@@ -14,10 +14,12 @@ body {
   @import 'components/header/header';
   @import 'components/card/card/';
   @import 'components/scrollToTop/scrollToTop';
+
   .card-list {
     display: flex;
     flex-wrap: wrap;
-    overflow: auto;
+    flex-direction: row;
+    justify-content: center;
   }
   .not-found {
     display: flex;

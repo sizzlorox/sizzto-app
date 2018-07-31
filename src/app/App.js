@@ -9,7 +9,6 @@ const NotFound = require('./views/NotFound');
 const Home = require('./views/Home');
 const About = require('./views/About');
 const News = require('./views/News');
-const Runescape = require('./views/Runescape');
 
 const { navbarLinks } = require('./utils/enumHelper');
 
