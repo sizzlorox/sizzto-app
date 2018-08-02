@@ -14,4 +14,5 @@ Preview: https://optimistic-cray-088380.netlify.com/
 2. Finish tests
 3. Add coverage badge
 4. Get better lighthouse report
-5. Set up ngnix
+5. Set up server-side rendering
+6. Set up ngnix
