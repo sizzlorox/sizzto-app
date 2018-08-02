@@ -28,8 +28,8 @@ if (isDeveloping) {
       colors: true,
       hash: true,
       timings: true,
-      chunks: true,
-      chunkModules: true,
+      chunks: false,
+      chunkModules: false,
       modules: false
     }
   });

@@ -1,11 +1,13 @@
 const React = require('react');
+const Parser = require('rss-parser');
+const parser = new Parser();
 
 class News extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      title: 'Still developing this part!',
+      title: 'Cyrpto-News (No styling yet)',
       rssFeed: process.env.NODE_ENV.includes('production')
         ? 'http://cryptscout.com/cryptocurrency-news-rss.php'
         : 'https://cors-anywhere.herokuapp.com/http://cryptscout.com/cryptocurrency-news-rss.php'
@@ -16,18 +18,24 @@ class News extends React.Component {
     this.getFeed();
   }
 
-  getFeed() {
+  async getFeed() {
+    const feed = await parser.parseURL(this.state.rssFeed);
+    this.setState({
+      items: feed.items
+    });
   }
 
   render() {
     return (
       <React.Fragment>
         <h1>{this.state.title}</h1>
-        {this.state.entries ? this.state.entries.map((entry, index) => {
+        {this.state.items ? this.state.items.map((entry, index) => {
           return (
-            <React.Fragment key={index}>
-              {entry.content}
-            </React.Fragment>
+            <div key={index}>
+              <h4>{entry.title}</h4>
+              <p>{entry.contentSnippet}</p>
+              <a href={entry.link}>Link</a>
+            </div>
           );
         }) : ''}
       </React.Fragment>

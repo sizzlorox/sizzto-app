@@ -25,7 +25,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "rss-parser": "^3.4.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
