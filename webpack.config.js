@@ -3,25 +3,38 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const options = {
   devtool: 'eval-source-map',
   mode: 'production',
   target: 'web',
+
   entry: [
     path.join(__dirname, 'src/app/index.js')
   ],
+
   output: {
     path: path.join(__dirname, '/dist/'),
     filename: '[name].js',
-    publicPath: '/'
+    publicPath: path.join(__dirname, '/public/res/'),
   },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.tpl.html',
       inject: 'body',
       filename: 'index.html'
     }),
+    new CompressionPlugin({
+      minRatio: 0.8,
+      deleteOriginalAssets: true,
+      algorithm: 'gzip',
+      asset: '[path].gz[query]'
+    }),
+    new CleanWebpackPlugin(['dist']),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
@@ -31,6 +44,7 @@ const options = {
       classnames: 'classnames'
     }),
   ],
+
   module: {
     rules: [
       {
@@ -79,5 +93,14 @@ const options = {
       }
     ],
   },
+
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        comments: false,
+        sourceMap: false
+      })
+    ]
+  }
 };
 module.exports = options;

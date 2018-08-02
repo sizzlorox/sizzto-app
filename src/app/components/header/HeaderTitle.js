@@ -1,5 +1,4 @@
 const React = require('react');
-const { FontAwesomeIcon } = require('@fortawesome/react-fontawesome');
 
 class HeaderTitle extends React.Component {
 
@@ -11,7 +10,6 @@ class HeaderTitle extends React.Component {
     return (
       <div className={classnames('header-title')} id='header-title'>
         <h1>
-          <FontAwesomeIcon icon={['fab', 'bitcoin']} />
           {this.props.text}
         </h1>
         {this.props.subheader && <h4>{this.props.subheader}</h4>}

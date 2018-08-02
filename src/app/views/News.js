@@ -7,8 +7,8 @@ class News extends React.Component {
     this.state = {
       title: 'Still developing this part!',
       rssFeed: process.env.NODE_ENV.includes('production')
-        ? 'https://cryptocurrencynews.com/feed'
-        : 'https://cors-anywhere.herokuapp.com/https://cryptocurrencynews.com/feed'
+        ? 'http://cryptscout.com/cryptocurrency-news-rss.php'
+        : 'https://cors-anywhere.herokuapp.com/http://cryptscout.com/cryptocurrency-news-rss.php'
     };
   }
 
@@ -21,7 +21,6 @@ class News extends React.Component {
       .then(results => results)
       .then(results => {
         console.log(results);
-        // const doc = new DOMParser().parseFromString(results, 'text/xml');
         // const title = doc.getElementsByTagName('title')[0].innerHTML;
         // const entries = Array.from(doc.getElementsByTagName('entry'))
         //   .map((entry) => {

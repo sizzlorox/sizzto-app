@@ -3,9 +3,17 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const options = {
-  devtool: 'eval-source-map',
+  devtool: 'inline-source-map',
+
+  devServer: {
+    contentBase: path.join(__dirname, '/dist/'),
+    hot: true
+  },
+
   mode: 'development',
   target: 'web',
   entry: [
@@ -14,8 +22,9 @@ const options = {
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
-    filename: '[name].js',
-    publicPath: '/'
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].bundle.js',
+    publicPath: path.join(__dirname, '/public/res/'),
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -23,8 +32,14 @@ const options = {
       inject: 'body',
       filename: 'index.html'
     }),
+    new CompressionPlugin({
+      minRatio: 0.8,
+      algorithm: 'gzip',
+      asset: '[path].gz[query]'
+    }),
+    new CleanWebpackPlugin(['dist']),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin({ multistep: true }),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
@@ -33,6 +48,9 @@ const options = {
       classnames: 'classnames'
     }),
   ],
+  performance: {
+    hints: 'warning'
+  },
   module: {
     rules: [
       {

@@ -1,5 +1,6 @@
 .vscode
 dist/
+stats.json
 
 # Logs
 logs
