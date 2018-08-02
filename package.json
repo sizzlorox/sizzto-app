@@ -17,7 +17,9 @@
     "transform": {
       ".*": "<rootDir>/node_modules/jest-css-modules"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js"
+    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js",
+    "verbose": true,
+    "testURL": "http://localhost/"
   },
   "author": "",
   "license": "ISC",
