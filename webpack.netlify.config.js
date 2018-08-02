@@ -30,7 +30,7 @@ const options = {
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
+      'process.env.NODE_ENV': JSON.stringify('netlify')
     }),
     new webpack.ProvidePlugin({
       classnames: 'classnames'
