@@ -8,7 +8,7 @@ class News extends React.Component {
     super(props);
     // TODO: fix rssFeed when removing out of netlify
     this.state = {
-      title: 'Cyrpto-News (No styling yet)',
+      title: 'Crypto-News (No styling yet)',
       rssFeed: process.env.NODE_ENV.includes('production')
         ? process.env.NODE_ENV.includes('netlify') ? 'https://cors-anywhere.herokuapp.com/http://cryptscout.com/cryptocurrency-news-rss.php'
           : '//cryptscout.com/cryptocurrency-news-rss.php'

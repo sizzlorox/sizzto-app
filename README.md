@@ -1,6 +1,9 @@
 # sizzto-app
 [![Build Status](https://travis-ci.org/sizzlorox/sizzto-app.svg?branch=master)](https://travis-ci.org/sizzlorox/sizzto-app)
 
+# Requirements
+node.js v7 or higher
+
 UNDER DEVELOPMENT
 
 Preview: https://optimistic-cray-088380.netlify.com/
