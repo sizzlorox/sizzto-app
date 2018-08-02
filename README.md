@@ -7,7 +7,7 @@ Preview: https://optimistic-cray-088380.netlify.com/
 
 
 # Lighthouse Report
-![alt text](https://imgur.com/a/urUGg5b)
+![lighthouse report](https://imgur.com/wf7q3Kl)
 
 # TODO
 1. Finish up rest of views
