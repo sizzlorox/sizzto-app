@@ -9,7 +9,7 @@ class News extends React.Component {
     this.state = {
       title: 'Cyrpto-News (No styling yet)',
       rssFeed: process.env.NODE_ENV.includes('production')
-        ? 'http://cryptscout.com/cryptocurrency-news-rss.php'
+        ? '//cryptscout.com/cryptocurrency-news-rss.php'
         : 'https://cors-anywhere.herokuapp.com/http://cryptscout.com/cryptocurrency-news-rss.php'
     };
   }
