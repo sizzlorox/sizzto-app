@@ -8,7 +8,6 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const options = {
-  devtool: 'eval-source-map',
   mode: 'production',
   target: 'web',
 
