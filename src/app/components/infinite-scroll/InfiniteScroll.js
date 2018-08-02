@@ -19,6 +19,9 @@ class InfiniteScroll extends React.Component {
   }
 
   componentDidMount() {
+    this.setState({
+      isLoading: true
+    });
     this.fetchData();
     window.addEventListener('scroll', this.listenScrollEvent);
   }

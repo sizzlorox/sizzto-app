@@ -13,9 +13,10 @@ Preview: https://optimistic-cray-088380.netlify.com/
 ![lighthouse report](https://i.imgur.com/wf7q3Kl.png)
 
 # TODO
-1. Finish up rest of views
-2. Finish tests
-3. Add coverage badge
-4. Get better lighthouse report
-5. Set up server-side rendering
-6. Set up ngnix
+1. Fix Hot loading not working
+2. Finish up rest of views
+3. Finish tests
+4. Add coverage badge
+5. Get better lighthouse report
+6. Set up server-side rendering
+7. Set up ngnix

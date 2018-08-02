@@ -10,13 +10,12 @@ const config = isDeveloping ? require('./webpack.development.config.js') : requi
 const port = isDeveloping || !isDeveloping && !process.env.PORT ? 3000 : process.env.PORT;
 const app = express();
 
+console.log(`isDeveloping: ${isDeveloping} - ENV: ${process.env.NODE_ENV}`);
 app.get('*.js', function (req, res, next) {
   req.url = req.url + '.gz';
   res.set('Content-Encoding', 'gzip');
   next();
 });
-
-console.log(`isDeveloping: ${isDeveloping} - ENV: ${process.env.NODE_ENV}`);
 if (isDeveloping) {
   const cors = require('cors');
   const compiler = webpack(config);
@@ -26,7 +25,7 @@ if (isDeveloping) {
     noInfo: false,
     stats: {
       colors: true,
-      hash: true,
+      hash: false,
       timings: true,
       chunks: false,
       chunkModules: false,
@@ -35,7 +34,9 @@ if (isDeveloping) {
   });
 
   app.use(middleware);
-  app.use(webpackHotMiddleware(compiler));
+  app.use(webpackHotMiddleware(compiler, {
+    heartbeat: 200
+  }));
   app.use(cors({
     origin: `http://localhost:${port}`,
     optionsSuccessStatus: 200
@@ -46,7 +47,7 @@ if (isDeveloping) {
   });
 } else {
   app.use(express.static(__dirname + '/dist'));
-  app.get('*', function response(req, res, next) {
+  app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
 }

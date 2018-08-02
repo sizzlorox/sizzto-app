@@ -8,11 +8,6 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const options = {
   devtool: 'inline-source-map',
 
-  devServer: {
-    contentBase: path.join(__dirname, '/dist/'),
-    hot: true
-  },
-
   mode: 'development',
   target: 'web',
   entry: [
@@ -22,7 +17,6 @@ const options = {
   output: {
     path: path.join(__dirname, '/dist/'),
     filename: '[name].js',
-    chunkFilename: '[name].js',
     publicPath: '/'
   },
   plugins: [
