@@ -4,7 +4,8 @@
   "description": "crypto currency app",
   "main": "server.js",
   "scripts": {
-    "dev": "node server cross-env NODE_ENV=development",
+    "start": "cross-env NODE_ENV=production node server",
+    "dev": "cross-env NODE_ENV=development node server",
     "build": "webpack",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -20,7 +21,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "parallax-js": "^3.1.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },

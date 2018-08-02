@@ -4,7 +4,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const options = {
   devtool: 'inline-source-map',
@@ -22,9 +21,9 @@ const options = {
   ],
   output: {
     path: path.join(__dirname, '/dist/'),
-    filename: '[name].bundle.js',
-    chunkFilename: '[name].bundle.js',
-    publicPath: path.join(__dirname, '/public/res/'),
+    filename: '[name].js',
+    chunkFilename: '[name].js',
+    publicPath: '/'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -34,10 +33,11 @@ const options = {
     }),
     new CompressionPlugin({
       minRatio: 0.8,
+      deleteOriginalAssets: true,
       algorithm: 'gzip',
+      threshold: 10240,
       asset: '[path].gz[query]'
     }),
-    new CleanWebpackPlugin(['dist']),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin({ multistep: true }),
     new webpack.NoEmitOnErrorsPlugin(),

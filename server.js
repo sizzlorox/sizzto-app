@@ -7,9 +7,16 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const config = isDeveloping ? require('./webpack.development.config.js') : require('./webpack.config.js');
 
-const port = isDeveloping ? 3000 : process.env.PORT;
+const port = isDeveloping || !isDeveloping && !process.env.PORT ? 3000 : process.env.PORT;
 const app = express();
 
+app.get('*.js', function (req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
+
+console.log(`isDeveloping: ${isDeveloping} - ENV: ${process.env.NODE_ENV}`);
 if (isDeveloping) {
   const cors = require('cors');
   const compiler = webpack(config);
@@ -19,10 +26,10 @@ if (isDeveloping) {
     noInfo: false,
     stats: {
       colors: true,
-      hash: false,
+      hash: true,
       timings: true,
-      chunks: false,
-      chunkModules: false,
+      chunks: true,
+      chunkModules: true,
       modules: false
     }
   });
@@ -39,7 +46,7 @@ if (isDeveloping) {
   });
 } else {
   app.use(express.static(__dirname + '/dist'));
-  app.get('*', function response(req, res) {
+  app.get('*', function response(req, res, next) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
 }

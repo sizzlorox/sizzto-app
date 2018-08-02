@@ -19,7 +19,7 @@ const options = {
   output: {
     path: path.join(__dirname, '/dist/'),
     filename: '[name].js',
-    publicPath: path.join(__dirname, '/public/res/'),
+    publicPath: '/'
   },
 
   plugins: [
@@ -32,6 +32,7 @@ const options = {
       minRatio: 0.8,
       deleteOriginalAssets: true,
       algorithm: 'gzip',
+      threshold: 10240,
       asset: '[path].gz[query]'
     }),
     new CleanWebpackPlugin(['dist']),

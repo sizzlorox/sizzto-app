@@ -17,27 +17,6 @@ class News extends React.Component {
   }
 
   getFeed() {
-    fetch(this.state.rssFeed)
-      .then(results => results.text())
-      .then(results => {
-        console.log(results);
-        // const title = doc.getElementsByTagName('title')[0].innerHTML;
-        // const entries = Array.from(doc.getElementsByTagName('entry'))
-        //   .map((entry) => {
-        //     console.log(entry.getElementsByTagName('title')[0].textContent);
-        //     console.log(entry.getElementsByTagName('content')[0].textContent);
-        //     return {
-        //       title: entry.getElementsByTagName('title')[0].textContent,
-        //       content: entry.getElementsByTagName('content')[0].textContent
-        //     };
-        //   });
-        // console.log(entries);
-        // this.setState({
-        //   title,
-        //   entries
-        // });
-      })
-      .catch(err => console.log(err));
   }
 
   render() {
