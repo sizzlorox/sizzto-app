@@ -18,7 +18,7 @@ class News extends React.Component {
 
   getFeed() {
     fetch(this.state.rssFeed)
-      .then(results => results)
+      .then(results => results.text())
       .then(results => {
         console.log(results);
         // const title = doc.getElementsByTagName('title')[0].innerHTML;

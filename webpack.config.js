@@ -97,7 +97,16 @@ const options = {
   optimization: {
     minimizer: [
       new UglifyJsPlugin({
-        comments: false,
+        uglifyOptions: {
+          warnings: false,
+          output: {
+            comments: false,
+            beautify: false
+          },
+          compress: true,
+          keep_classnames: false,
+          keep_fnames: false
+        },
         sourceMap: false
       })
     ]
