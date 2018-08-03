@@ -3,6 +3,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const options = {
   devtool: 'eval-source-map',
@@ -21,6 +22,7 @@ const options = {
   },
 
   plugins: [
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: 'public/index.tpl.html',
       inject: 'body',
@@ -46,7 +48,7 @@ const options = {
           {
             loader: 'babel-loader',
             options: {
-              cacheDirectory: true,
+              cacheDirectory: true
             }
           },
         ],

@@ -12,8 +12,9 @@ body {
 #app {
   @import 'components/nav-bar/navbar';
   @import 'components/header/header';
-  @import 'components/card/card/';
+  @import 'components/card/card';
   @import 'components/scrollToTop/scrollToTop';
+  @import 'components/modal/modal';
 
   .card-list {
     display: flex;

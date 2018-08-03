@@ -9,6 +9,7 @@ const NotFound = require('./views/NotFound');
 const Home = require('./views/Home');
 const About = require('./views/About');
 const News = require('./views/News');
+const Test = require('./views/Test');
 
 const { navbarLinks } = require('./utils/enumHelper');
 
@@ -48,6 +49,7 @@ class App extends React.Component {
               <Route exact path='/' component={Home} />
               <Route path='/about' component={About} />
               <Route path='/news' component={News} />
+              <Route path='/test' component={Test} />
               <Route component={NotFound} />
             </Switch>
           </div>
