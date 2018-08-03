@@ -48,7 +48,6 @@ class App extends React.Component {
               <Route exact path='/' component={Home} />
               <Route path='/about' component={About} />
               <Route path='/news' component={News} />
-              {/* <Route path='/osrs' component={Runescape} /> */}
               <Route component={NotFound} />
             </Switch>
           </div>

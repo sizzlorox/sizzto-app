@@ -5,17 +5,12 @@ const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
-const config = isDeveloping ? require('./webpack.development.config.js') : require('./webpack.config.js');
+const config = require(isDeveloping ? './webpack.development.config.js' : './webpack.config.js');
 
 const port = isDeveloping || !isDeveloping && !process.env.PORT ? 3000 : process.env.PORT;
 const app = express();
 
 console.log(`isDeveloping: ${isDeveloping} - ENV: ${process.env.NODE_ENV}`);
-app.get('*.js', function (req, res, next) {
-  req.url = req.url + '.gz';
-  res.set('Content-Encoding', 'gzip');
-  next();
-});
 if (isDeveloping) {
   const cors = require('cors');
   const compiler = webpack(config);
@@ -35,7 +30,7 @@ if (isDeveloping) {
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler, {
-    heartbeat: 200
+    log: console.log, path: '/__webpack_hmr', heartbeat: 10 * 1000
   }));
   app.use(cors({
     origin: `http://localhost:${port}`,
@@ -46,6 +41,11 @@ if (isDeveloping) {
     res.end();
   });
 } else {
+  app.get('*.js', function (req, res, next) {
+    req.url = req.url + '.gz';
+    res.set('Content-Encoding', 'gzip');
+    next();
+  });
   app.use(express.static(__dirname + '/dist'));
   app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));

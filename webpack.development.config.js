@@ -3,37 +3,31 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
 
 const options = {
-  devtool: 'inline-source-map',
+  devtool: 'eval-source-map',
 
   mode: 'development',
   target: 'web',
   entry: [
-    'webpack-hot-middleware/client?reload=true',
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
     path.join(__dirname, 'src/app/index.js')
   ],
+
   output: {
     path: path.join(__dirname, '/dist/'),
     filename: '[name].js',
     publicPath: '/'
   },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.tpl.html',
       inject: 'body',
       filename: 'index.html'
     }),
-    new CompressionPlugin({
-      minRatio: 0.8,
-      deleteOriginalAssets: true,
-      algorithm: 'gzip',
-      threshold: 10240,
-      asset: '[path].gz[query]'
-    }),
     new webpack.NamedModulesPlugin(),
-    new webpack.HotModuleReplacementPlugin({ multistep: true }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development')
@@ -42,9 +36,7 @@ const options = {
       classnames: 'classnames'
     }),
   ],
-  performance: {
-    hints: 'warning'
-  },
+
   module: {
     rules: [
       {
