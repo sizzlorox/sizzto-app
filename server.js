@@ -11,6 +11,11 @@ const port = isDeveloping || !isDeveloping && !process.env.PORT ? 3000 : process
 const app = express();
 
 console.log(`isDeveloping: ${isDeveloping} - ENV: ${process.env.NODE_ENV}`);
+app.get('*.js', function (req, res, next) {
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
 if (isDeveloping) {
   const cors = require('cors');
   const compiler = webpack(config);
@@ -41,11 +46,6 @@ if (isDeveloping) {
     res.end();
   });
 } else {
-  app.get('*.js', function (req, res, next) {
-    req.url = req.url + '.gz';
-    res.set('Content-Encoding', 'gzip');
-    next();
-  });
   app.use(express.static(__dirname + '/dist'));
   app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));

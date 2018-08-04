@@ -4,6 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const options = {
   devtool: 'eval-source-map',
@@ -27,6 +28,13 @@ const options = {
       template: 'public/index.tpl.html',
       inject: 'body',
       filename: 'index.html'
+    }),
+    new CompressionPlugin({
+      minRatio: 0.8,
+      deleteOriginalAssets: true,
+      algorithm: 'gzip',
+      threshold: 10240,
+      asset: '[path].gz[query]'
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
